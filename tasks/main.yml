@@ -1,0 +1,22 @@
+---
+# tasks file for ansible_role_django
+
+- name: Install pip
+  yum:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - "python{{ django_py_major_ver }}-pip"
+
+- name: Install Django
+  pip:
+    name: django
+    version: "{{ django_version }}"
+    state: "{{ django_state }}"
+ 
+- name: Install Django db drivers
+  easy_install:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - "{{ django_db_drivers }}"

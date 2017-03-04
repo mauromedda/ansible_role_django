@@ -1,0 +1,8 @@
+---
+#
+# defaults file for ansible_role_django
+#
+django_db_drivers: [ ]
+django_version: "1.10"
+django_py_major_ver: "2"
+django_state: "present"
